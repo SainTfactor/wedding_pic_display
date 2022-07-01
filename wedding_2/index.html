@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/site.css">
+  </head>
+  <body>
+    <div class="breadcrumb"></div>
+    <div class="group">
+      <a href="/wedding_2/additional_locations" class="card">Additional Locations</a>
+      <a href="/wedding_2/ceremony_and_family" class="card">Ceremony and Family</a>
+      <a href="/wedding_2/editors_choice" class="card">Editors Choice</a>
+      <a href="/wedding_2/extras" class="card">Extras</a>
+      <a href="/wedding_2/getting_ready" class="card">Getting Ready</a>
+      <a href="/wedding_2/reception" class="card">Reception</a>
+    </div>
+    <script type="text/javascript">
+      let name_fix = function(name) {
+        let ret_val = name.split("_")
+        ret_val = ret_val.map(f => { return f.charAt(0).toUpperCase() + f.slice(1); })
+        return ret_val.join(" ")
+      }
+
+      let breadcrumb = function(){
+        let page_path = window.location.pathname.replace(/^\/|\/$/g, "").split("/")
+        let runner = "/"
+        let template = ` >> <span class='breadcrumb_item' onClick="window.location.pathname='~~~~'">`
+        let bc_html = `<span class='breadcrumb_item' onClick='window.location.pathname = \"/\"'>Home</span>`
+        page_path.forEach(function(f) { runner += f + "/"; bc_html += template.replace(/~~~~/, runner) + name_fix(f) + "</span>" });
+        document.querySelector(".breadcrumb").innerHTML = bc_html
+      }
+
+      document.addEventListener('DOMContentLoaded', breadcrumb, false);
+    </script>
+  </body>
+</html>

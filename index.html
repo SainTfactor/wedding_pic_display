@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/site.css">
+  </head>
+  <body>
+    <div class="breadcrumb"></div>
+    <div class="group">
+      <a href="/engagement" class="card">Engagement Pics</a>
+      <a href="/wedding_1" class="card">Wedding 1</a>
+      <a href="/wedding_2" class="card">Wedding 2</a>
+    </div>
+    <script type="text/javascript">
+      let name_fix = function(name) {
+        let ret_val = name.split("_")
+        ret_val = ret_val.map(f => { return f.charAt(0).toUpperCase() + f.slice(1); })
+        return ret_val.join(" ")
+      }
+
+      let breadcrumb = function(){
+        let bc_html = `<span class='breadcrumb_item' onClick='window.location.pathname = \"/\"'>Home</span>`
+        document.querySelector(".breadcrumb").innerHTML = bc_html
+      }
+
+      document.addEventListener('DOMContentLoaded', breadcrumb, false);
+    </script>
+  </body>
+</html>
