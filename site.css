@@ -35,3 +35,14 @@ body {
 .breadcrumb_item {
     cursor: pointer;
 }
+
+@media all and (max-width: 20.4cm) {
+    img {
+        max-width: calc(100% - 4mm);
+    }
+
+    .card {
+      width: 95vw;
+    }
+}
+
